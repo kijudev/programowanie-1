@@ -18,11 +18,11 @@ projects: $(PROJECT_BINS)
 tests: $(TEST_BINS)
 
 bin/%/project: projects/%/main.cpp
-	mkdir -p bin/%
+	mkdir -p bin/$*
 	$(CXX) $(CXXFLAGS) $< -o $@
 
 bin/%/tests: projects/%/test.cpp
-	mkdir -p bin/%
+	mkdir -p bin/$*
 	$(CXX) $(CXXTESTFLAGS) $< -o $@
 
 clean:
