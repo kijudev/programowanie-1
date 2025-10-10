@@ -1,6 +1,5 @@
 #include <clocale>
 #include <cmath>
-#include <cstdint>
 #include <iomanip>
 #include <ios>
 #include <iostream>
@@ -50,15 +49,40 @@ void ex_3() {
     double a = (ay - by) / (ax - bx);
     double b = ay - (ax * a);
 
-    if (b < 0) {
-        std::cout << "Równanie prostej: y = " << a << "x - " << std::abs(b)
-                  << "\n";
+    if (a == 0) {
+        std::cout << "Równanie prostej: y = " << b << "\n";
     } else {
-        std::cout << "Równanie prostej: y = " << a << "x + " << b << "\n";
+        if (b < 0) {
+            std::cout << "Równanie prostej: y = " << a << "x - " << std::abs(b)
+                      << "\n";
+        } else if (b == 0) {
+            std::cout << "Równanie prostej: y = " << a << "x" << "\n";
+        } else {
+            std::cout << "Równanie prostej: y = " << a << "x + " << b << "\n";
+        }
     }
 }
 
+void ex_4() {
+    double a {}, b {}, c {}, x {};
+
+    std::cout << std::setw(20) << std::setfill('*') << "";
+    std::cout << "\nPodaj a: ";
+    std::cin >> a;
+    std::cout << "\nPodaj b: ";
+    std::cin >> b;
+    std::cout << "\nPodaj c: ";
+    std::cin >> c;
+    std::cout << std::setw(20) << std::setfill('*') << "";
+    std::cout << "\nPodaj x: ";
+    std::cin >> x;
+    std::cout << std::setw(20) << std::setfill('*') << "\n";
+    std::cout << "f(x) = " << a << "x^2 + " << b << "x" << " + " << c << "\n";
+    std::cout << std::setw(20) << std::setfill('*') << "\n";
+    std::cout << "f(x) = " << a * (x * x) + b * x + c << "\n";
+}
+
 int main() {
-    ex_3();
+    ex_4();
     return 0;
 }
